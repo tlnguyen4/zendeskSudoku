@@ -1,0 +1,21 @@
+th, td {
+    height: 11%;
+    width: 11%;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.table {
+    height: 225px;
+    width: 225px;
+    border: 5px solid black;
+    border-collapse: collapse;
+}
+
+.dark-col {
+    border-left: 5px solid black;
+}
+
+.dark-row {
+    border-top: 5px solid black;
+}
