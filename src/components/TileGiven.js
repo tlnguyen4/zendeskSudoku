@@ -5,14 +5,14 @@ class TileGiven extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            cellNumber: this.props.value,
         }
     }
 
     render () {
         return (
             <div>
-                {this.props.value}
+                {this.state.cellNumber}
             </div>
         )
     }

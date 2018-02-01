@@ -7,15 +7,7 @@ class Board extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            board: [5, 3, -1, -1, 7, -1, -1, -1, -1,
-                    6, -1, -1, 1, 9, 5, -1, -1, -1,
-                    -1, 9, 8, -1, -1, -1, -1, 6, -1,
-                    8, -1, -1, -1, 6, -1, -1, -1, 3,
-                    4, -1, -1, 8, -1, 3, -1, -1, 1,
-                    7, -1, -1, -1, 2, -1, -1, -1, 6,
-                    -1, 6, -1, -1, -1, -1, 2, 8, -1,
-                    -1, -1, -1, 4, 1, 9, -1, -1, 5,
-                    -1, -1, -1, -1, 8, -1, -1, 7, 9]
+            board: this.props.board
         }
     }
 
@@ -29,11 +21,11 @@ class Board extends Component {
                 const val = this.state.board[locationInBoard];
                 if (col === 3 || col === 6) {
                     cell.push(<td key={cellID} className={'dark-col'}>
-                        {(val === -1 ? <TileEmpty value={val}/> : <TileGiven value={val}/>)}
+                        {(val === -1 ? <TileEmpty /> : <TileGiven value={val}/>)}
                     </td>);
                 } else {
                     cell.push(<td key={cellID}>
-                        {(val === -1 ? <TileEmpty value={val}/> : <TileGiven value={val}/>)}
+                        {(val === -1 ? <TileEmpty /> : <TileGiven value={val}/>)}
                     </td>);
                 }
             }
