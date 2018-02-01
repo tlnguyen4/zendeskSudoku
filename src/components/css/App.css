@@ -1,0 +1,12 @@
+.App-board-location {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.button {
+    margin: 10px;
+    color: midnightblue;
+}
