@@ -1,19 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './css/App.css';
 
-class Buttons extends Component {
-    render() {
-        return (
-            <div>
-                <button onClick={this.props.setBoard} className={'button'}>
-                    Start a game
-                </button>
-                <button className={'button'}>Submit</button>
-                <button className={'button'}>Solve</button>
-                <button className={'button'}>Restart</button>
-            </div>
-        );
-    }
+let Buttons = ({ setBoard, restart, solve }) => {
+    return (
+        <div>
+            <button title={'Populate the board with a Sudoku game'}
+                    onClick={setBoard}
+                    className={'button'}>
+                Start a game
+            </button>
+            <button title={'Submit the board when done or to check progress'}
+                    className={'button'}>
+                Submit
+            </button>
+            <button title={'Reveal the answer to the current board'}
+                    onClick={solve}
+                    className={'button'}>
+                Solve
+            </button>
+            <button title={'Reset the board'}
+                onClick={restart}
+                className={'button'}>
+                Restart
+            </button>
+        </div>
+    );
 }
 
 export default Buttons;

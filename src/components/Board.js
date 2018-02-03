@@ -4,42 +4,42 @@ import TileGiven from './TileGiven.js';
 import TileEmpty from './TileEmpty.js';
 
 class Board extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            board: this.props.board
-        }
-    }
-
     render () {
-        let rows = [];
+        // Fill the table with row and columns of cells: empty for missing value indicated by -1, and unchangeable
+        // cell for preset values
+        let board = [];
         for (let row = 0; row < 9; row++) {
             let cell = [];
             for (let col = 0; col < 9; col++){
-                let cellID = row + '-' + col;
                 const locationInBoard = row * 9 + col;
-                const val = this.state.board[locationInBoard];
+                const val = this.props.board[locationInBoard];
+                // Darken border of column 3 and 6 to make board looks like a sudoku board
                 if (col === 3 || col === 6) {
-                    cell.push(<td key={cellID} className={'dark-col'}>
-                        {(val === -1 ? <TileEmpty /> : <TileGiven value={val}/>)}
-                    </td>);
+                    cell.push(<td key={locationInBoard} className={'dark-col'}>{(val > 0 ?
+                                    <TileGiven value={val}/> :
+                                    <TileEmpty value={val}
+                                               numberInput={(num) => this.props.numberInput(locationInBoard, num)}/>)}
+                                               </td>);
                 } else {
-                    cell.push(<td key={cellID}>
-                        {(val === -1 ? <TileEmpty /> : <TileGiven value={val}/>)}
-                    </td>);
+                    cell.push(<td key={locationInBoard}>{(val > 0 ?
+                                    <TileGiven value={val}/> :
+                                    <TileEmpty value={val}
+                                               numberInput={(num) => this.props.numberInput(locationInBoard, num)}/>)}
+                                               </td>);
                 }
             }
+            // Darken border of row 3 and 6
             if (row === 3 || row === 6) {
-                rows.push(<tr key={row} className={'dark-row'}>{cell}</tr>);
+                board.push(<tr key={row} className={'dark-row'}>{cell}</tr>);
             } else {
-                rows.push(<tr key={row}>{cell}</tr>);
+                board.push(<tr key={row}>{cell}</tr>);
             }
         }
 
         return (
             <div className={"container"}>
                 <table className={"table"}>
-                    <tbody>{rows}</tbody>
+                    <tbody>{board}</tbody>
                 </table>
             </div>
         );

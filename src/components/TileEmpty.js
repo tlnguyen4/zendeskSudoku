@@ -2,16 +2,8 @@ import React, { Component } from 'react';
 import './css/TileEmpty.css';
 
 class TileEmpty extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            cellNumber: ''
-        };
-        this.handleChange = this.handleChange.bind(this);
-    }
-
     handleChange(event) {
-        this.setState({cellNumber: event.target.cellNumber});
+        this.props.numberInput(event.target.value * -1);
     }
 
     render () {
@@ -19,8 +11,8 @@ class TileEmpty extends Component {
             <div>
                 <input className={'number-text'}
                        type="text"
-                       value={this.state.cellNumber}
-                       onChange={this.handleChange}
+                       value={(this.props.value < 0 ? this.props.value * -1 : '')}
+                       onChange={(e) => this.handleChange(e)}
                 />
             </div>
         )
