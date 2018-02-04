@@ -1,4 +1,9 @@
-.number-text {
-    color: blue;
+.number-correct {
+    color: darkgreen;
+    width: 80%;
+}
+
+.number-incorrect {
+    color: darkred;
     width: 80%;
 }

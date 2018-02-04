@@ -22,6 +22,6 @@
 }
 
 .button:hover {
-    background-color: mediumslateblue;
-    color: white;
+    background-color: coral;
+    color: midnightblue;
 }

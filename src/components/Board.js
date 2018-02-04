@@ -5,8 +5,10 @@ import TileEmpty from './TileEmpty.js';
 
 class Board extends Component {
     render () {
+        if (this.props.completed) alert("Congratulations! You solved it!");
         // Fill the table with row and columns of cells: empty for missing value indicated by -1, and unchangeable
         // cell for preset values
+        console.log('this is board in board component: ', this.props.board);
         let board = [];
         for (let row = 0; row < 9; row++) {
             let cell = [];
@@ -15,16 +17,18 @@ class Board extends Component {
                 const val = this.props.board[locationInBoard];
                 // Darken border of column 3 and 6 to make board looks like a sudoku board
                 if (col === 3 || col === 6) {
-                    cell.push(<td key={locationInBoard} className={'dark-col'}>{(val > 0 ?
+                    cell.push(<td key={locationInBoard} className={'dark-col'}>{(val > 0) ?
                                     <TileGiven value={val}/> :
                                     <TileEmpty value={val}
-                                               numberInput={(num) => this.props.numberInput(locationInBoard, num)}/>)}
+                                               check={this.props.check[locationInBoard]}
+                                               numberInput={(num) => this.props.numberInput(locationInBoard, num)}/>}
                                                </td>);
                 } else {
-                    cell.push(<td key={locationInBoard}>{(val > 0 ?
+                    cell.push(<td key={locationInBoard}>{(val > 0) ?
                                     <TileGiven value={val}/> :
                                     <TileEmpty value={val}
-                                               numberInput={(num) => this.props.numberInput(locationInBoard, num)}/>)}
+                                               check={this.props.check[locationInBoard]}
+                                               numberInput={(num) => this.props.numberInput(locationInBoard, num)}/>}
                                                </td>);
                 }
             }

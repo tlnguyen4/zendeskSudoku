@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/App.css';
 
-let Buttons = ({ setBoard, restart, solve }) => {
+let Buttons = ({ setBoard, restart, solve, submit }) => {
     return (
         <div>
             <button title={'Populate the board with a Sudoku game'}
@@ -10,6 +10,7 @@ let Buttons = ({ setBoard, restart, solve }) => {
                 Start a game
             </button>
             <button title={'Submit the board when done or to check progress'}
+                    onClick={submit}
                     className={'button'}>
                 Submit
             </button>

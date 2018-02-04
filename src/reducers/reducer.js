@@ -18,22 +18,62 @@ const solvedBoard = [5, 3, -4, -6, 7, -8, -9, -1, -2,
                         -2, -8, -7, 4, 1, 9, -6, -3, 5,
                         -3, -4, -5, -2, 8, -6, -1, 7, 9];
 
-const reducer = (state = [], action) => {
+const initialState = {board: [], check: Array(81).fill(0), solveClicked: false ,completed: false};
+
+const reducer = (state = initialState, action) => {
     switch(action.type) {
         case 'SETUP_BOARD':
-            return setBoard;
-        case 'RESTART':
-            let newState = [...state];
-            for (let i = 0; i < 81; i++) {
-                if (newState[i] < 0) newState[i] = 0;
+            let newStateSetBoard = Object.assign({}, state);
+            if (newStateSetBoard.board.length === 0) newStateSetBoard.board = setBoard; // game didn't start
+            else {
+                for (let i = 0; i < 81; i++) {
+                    if (newStateSetBoard.board[i] < 0) newStateSetBoard.board[i] = 0;
+                }
             }
-            return newState;
+            return newStateSetBoard;
+        case 'RESTART':
+            let newStateRestart = Object.assign({}, state);
+            if (newStateRestart.board.length === 0) newStateRestart.board = []; // game didn't start
+            else {
+                for (let i = 0; i < 81; i++) {
+                    if (newStateRestart.board[i] < 0) newStateRestart.board[i] = 0;
+                }
+            }
+            newStateRestart.check = Array(81).fill(0);
+            return newStateRestart;
         case 'NUMBER_INPUT':
-            let newState1 = [...state];
-            newState1[action.location] = action.value;
-            return newState1;
+            let newStateInput = Object.assign({}, state);
+            newStateInput.board[action.location] = action.value;
+            console.log('this is board after number input ', newStateInput.board);
+            return newStateInput;
         case 'SOLVE':
-            return solvedBoard;
+            let newStateSolve = Object.assign({}, state);
+            newStateSolve.check = Array(81).fill(1);
+            if (newStateSolve.board.length === 0) newStateSolve.board = []; // there's nothing on board to solve
+            else {
+                for (let i = 0; i < 81; i++) {
+                    newStateSolve.board[i] = solvedBoard[i];
+                }
+            } // solution for current game
+            newStateSolve.solveClicked = true;
+            return newStateSolve;
+        case 'SUBMIT':
+            let newStateSubmit = Object.assign({}, state);
+            let wrongTileCount = 0;
+            for (let i = 0; i < 81; i++) {
+                if (newStateSubmit.board[i] < 0) {
+                    if (newStateSubmit.board[i] === solvedBoard[i]) newStateSubmit.check[i] = 1;
+                    else {
+                        newStateSubmit.check[i] = -1;
+                        wrongTileCount = wrongTileCount + 1;
+                    }
+                } else if (newStateSubmit.board[i] === 0)  {
+                    wrongTileCount = wrongTileCount + 1;
+                }
+            }
+            if (wrongTileCount === 0 && !newStateSubmit.solveClicked && newStateSubmit.board.length !== 0)
+                newStateSubmit.completed = true;
+            return newStateSubmit;
         default:
             return state;
     }
