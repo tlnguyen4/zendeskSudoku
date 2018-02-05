@@ -1,21 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './css/TileEmpty.css';
 
-class TileEmpty extends Component {
-    // handleChange(event) {
-    //     event.preventDefault();
-    //     this.props.numberInput(event.target.value);
-    // }
-
-    render () {
-        return (
-            <div>
-                {(this.props.correct !== 1) ?
-                    <input className={'number-incorrect'} value={(this.props.value < 0 ? this.props.value * -1 : '')} onChange={(e) => this.props.numberInput(e.target.value)}/> :
-                    <input className={'number-correct'} value={(this.props.value < 0 ? this.props.value * -1 : '')} onChange={(e) => this.props.numberInput(e.target.value)} />}
-            </div>
-        )
-    }
+let TileEmpty = ({ value, correct, numberInput}) => {
+    return (
+        <div>
+            {(correct !== 1) ?
+                <input className={'number-incorrect'} value={(value < 0 ? value * -1 : '')} onChange={(e) => numberInput(e.target.value)}/> :
+                <input className={'number-correct'} value={(value < 0 ? value * -1 : '')} onChange={(e) => numberInput(e.target.value)} />}
+        </div>
+    )
 }
 
 export default TileEmpty;
