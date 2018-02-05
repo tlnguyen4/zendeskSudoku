@@ -5,7 +5,6 @@ import TileEmpty from './TileEmpty.js';
 
 class Board extends Component {
     render () {
-        console.log('board in board.js: ', this.props.board);
         if (this.props.completed) alert("Congratulations! You solved it!");
         // Fill the table with row and columns of cells: empty for missing value indicated by -1, and unchangeable
         // cell for preset values

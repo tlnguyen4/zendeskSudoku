@@ -18,7 +18,7 @@ const solvedBoard = [5, 3, -4, -6, 7, -8, -9, -1, -2,
                         -2, -8, -7, 4, 1, 9, -6, -3, 5,
                         -3, -4, -5, -2, 8, -6, -1, 7, 9];
 
-const initialState = {board: [], check: [], solveClicked: false, completed: false};
+const initialState = {board: [], check: [], solveClicked: false, completed: false, userInput: 0};
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
@@ -47,12 +47,14 @@ const reducer = (state = initialState, action) => {
         case 'NUMBER_INPUT':
             let newStateInput = Object.assign({}, state);
             newStateInput.board[action.location] = action.value * -1; // negative to know which is user input
+            newStateInput.userInput = newStateInput.userInput + 1;
             return newStateInput;
         case 'SUBMIT':
             let newStateSubmit = Object.assign({}, state);
             let wrongTileCount = 0; // number of wrong cells
             // for each cell, if cell value is negative (meaning it's an input), check if it's the same as the answer
-            // if yes, then 1, else it's -1. If cell is 0 then it's empty.
+            // if yes, then 1, else it's -1. If cell is 0 then it's empty. While checking submit, keep track if wrong
+            // cells. Change completion status if nothing's wrong and all answers are player inputs
             for (let i = 0; i < 81; i++) {
                 if (newStateSubmit.board[i] <= 0) {
                     if (newStateSubmit.board[i] === solvedBoard[i]) newStateSubmit.check[i] = 1;
