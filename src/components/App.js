@@ -22,10 +22,12 @@ let App =({ board, check, completed,
 
 // Map state to props for app
 const mapStateToProps = (state) => {
+    console.log('board in mapStateToProps: ', state.board);
     return {
         board: state.board,
         check: state.check,
-        completed: state.completed
+        completed: state.completed,
+        solved: state.solveClicked
     }
 }
 
