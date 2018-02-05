@@ -17,14 +17,14 @@ class Board extends Component {
                 const val = this.props.board[locationInBoard];
                 // Darken border of column 3 and 6 to make board looks like a Sudoku board
                 if (col === 3 || col === 6) {
-                    cell.push(<td key={locationInBoard} className={'dark-col'}>{(val > 0) ?
+                    cell.push(<td key={locationInBoard} className={'dark-col'}>{(val > 0 || this.props.check[locationInBoard] === 1) ?
                                     <TileGiven value={val}/> :
                                     <TileEmpty value={val}
                                                correct={this.props.check[locationInBoard]}
                                                numberInput={(num) => this.props.numberInput(locationInBoard, num)}/>}
                                                </td>);
                 } else {
-                    cell.push(<td key={locationInBoard}>{(val > 0) ?
+                    cell.push(<td key={locationInBoard}>{(val > 0 || this.props.check[locationInBoard] === 1) ?
                                     <TileGiven value={val}/> :
                                     <TileEmpty value={val}
                                                correct={this.props.check[locationInBoard]}
