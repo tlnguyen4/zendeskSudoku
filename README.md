@@ -1,2 +1,3 @@
-# zendesksudoku
-A simple one board Sudoku game to demonstrate coding ability for Zendesk Internship
+# Thanh's Zendesk 1 Board Sudoku Game
+
+please provide a README.md that outlines the general structure of your application and technologies used.
