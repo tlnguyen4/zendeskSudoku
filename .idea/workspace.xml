@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d1d7a07-cb6f-4173-83de-75bb13ac7d6f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/css/Tile.css" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/components/TileEmpty.js" afterPath="$PROJECT_DIR$/src/components/TileEmpty.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/TileGiven.js" afterPath="$PROJECT_DIR$/src/components/TileGiven.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/css/TileEmpty.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" afterPath="$PROJECT_DIR$/src/index.css" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/reducer.js" afterPath="$PROJECT_DIR$/src/reducers/reducer.js" />
+      <change beforePath="$PROJECT_DIR$/src/components/css/Board.css" afterPath="$PROJECT_DIR$/src/components/css/Board.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,11 +16,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="Tile.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Tile.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/css/Tile.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+            <state relative-caret-position="66">
+              <caret line="2" column="15" lean-forward="true" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Board.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/css/Board.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -79,6 +83,7 @@
         <option value="$PROJECT_DIR$/src/components/TileGiven.js" />
         <option value="$PROJECT_DIR$/src/components/css/Tile.css" />
         <option value="$PROJECT_DIR$/src/components/TileEmpty.js" />
+        <option value="$PROJECT_DIR$/src/components/css/Board.css" />
       </list>
     </option>
   </component>
@@ -209,16 +214,15 @@
       <workItem from="1517770884933" duration="3777000" />
       <workItem from="1517780232674" duration="330000" />
       <workItem from="1517793009356" duration="6606000" />
-      <workItem from="1517799640350" duration="8120000" />
+      <workItem from="1517799640350" duration="8396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66689000" />
+    <option name="totallyTimeSpent" value="66965000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-13" y="-13" width="2586" height="1386" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1796875" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -558,13 +562,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/css/TileGiven.css" />
-    <entry file="file://$PROJECT_DIR$/src/components/css/Board.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="19" column="32" lean-forward="false" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Buttons.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -648,8 +645,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/css/Tile.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+        <state relative-caret-position="66">
+          <caret line="2" column="15" lean-forward="true" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/css/Board.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
           <folding />
         </state>
       </provider>
