@@ -20,14 +20,12 @@ class Board extends Component {
                     cell.push(<td key={locationInBoard} className={'dark-col'}>{(val > 0 || this.props.check[locationInBoard] === 1) ?
                                     <TileGiven value={val}/> :
                                     <TileEmpty value={val}
-                                               correct={this.props.check[locationInBoard]}
                                                numberInput={(num) => this.props.numberInput(locationInBoard, num)}/>}
                                                </td>);
                 } else {
                     cell.push(<td key={locationInBoard}>{(val > 0 || this.props.check[locationInBoard] === 1) ?
                                     <TileGiven value={val}/> :
                                     <TileEmpty value={val}
-                                               correct={this.props.check[locationInBoard]}
                                                numberInput={(num) => this.props.numberInput(locationInBoard, num)}/>}
                                                </td>);
                 }
