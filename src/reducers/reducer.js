@@ -1,3 +1,4 @@
+// Initial board
 const setBoard = [5, 3, 0, 0, 7, 0, 0, 0, 0,
                     6, 0, 0, 1, 9, 5, 0, 0, 0,
                     0, 9, 8, 0, 0, 0, 0, 6, 0,
@@ -8,6 +9,7 @@ const setBoard = [5, 3, 0, 0, 7, 0, 0, 0, 0,
                     0, 0, 0, 4, 1, 9, 0, 0, 5,
                     0, 0, 0, 0, 8, 0, 0, 7, 9];
 
+// Solution board
 const solvedBoard = [5, 3, -4, -6, 7, -8, -9, -1, -2,
                         6, -7, -2, 1, 9, 5, -3, -4, -8,
                         -1, 9, 8, -3, -4, -2, -5, 6, -7,
@@ -18,6 +20,7 @@ const solvedBoard = [5, 3, -4, -6, 7, -8, -9, -1, -2,
                         -2, -8, -7, 4, 1, 9, -6, -3, 5,
                         -3, -4, -5, -2, 8, -6, -1, 7, 9];
 
+// initial state of the game (userInput to go around React shallow checking)
 const initialState = {board: [], check: [], solveClicked: false, completed: false, userInput: 0};
 
 const reducer = (state = initialState, action) => {
@@ -25,11 +28,13 @@ const reducer = (state = initialState, action) => {
         case 'SETUP_BOARD':
             let newStateSetBoard = Object.assign({}, state);
             // set board to initial board
-            newStateSetBoard.board = setBoard;
-            // if a board exists, then change input (negative values) to 0 (neutral)
-            for (let i = 0; i < 81; i++) {
-                if (newStateSetBoard.board[i] < 0)
-                    newStateSetBoard.board[i] = 0;
+            if (newStateSetBoard.board.length === 0) newStateSetBoard.board = setBoard;
+            else {
+                // if a board exists, then change input (negative values) to 0 (neutral)
+                for (let i = 0; i < 81; i++) {
+                    if (newStateSetBoard.board[i] < 0)
+                        newStateSetBoard.board[i] = 0;
+                }
             }
             newStateSetBoard.check = Array(81).fill(0);
             return newStateSetBoard;
@@ -39,7 +44,7 @@ const reducer = (state = initialState, action) => {
             else {
                 for (let i = 0; i < 81; i++) {
                     if (newStateRestart.board[i] < 0)
-                        newStateRestart.board[i] = 0;
+                        newStateRestart.board[i] = 0; // reset player input to neutral
                 }
             }
             newStateRestart.check = Array(81).fill(0);
