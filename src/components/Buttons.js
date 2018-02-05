@@ -7,7 +7,7 @@ let Buttons = ({ setBoard, restart, solve, submit }) => {
             <button title={'Populate the board with a Sudoku game'}
                     onClick={setBoard}
                     className={'button'}>
-                Start a game
+                New game
             </button>
             <button title={'Submit the board when done or to check progress'}
                     onClick={submit}

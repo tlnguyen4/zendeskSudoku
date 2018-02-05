@@ -18,43 +18,43 @@ const solvedBoard = [5, 3, -4, -6, 7, -8, -9, -1, -2,
                         -2, -8, -7, 4, 1, 9, -6, -3, 5,
                         -3, -4, -5, -2, 8, -6, -1, 7, 9];
 
-const initialState = {board: [], check: Array(81).fill(0), solveClicked: false ,completed: false};
+const initialState = {board: [], check: [], solveClicked: false, completed: false};
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
         case 'SETUP_BOARD':
             let newStateSetBoard = Object.assign({}, state);
-            if (newStateSetBoard.board.length === 0) newStateSetBoard.board = setBoard; // game didn't start
-            else {
-                for (let i = 0; i < 81; i++) {
-                    if (newStateSetBoard.board[i] < 0) newStateSetBoard.board[i] = 0;
-                }
+            newStateSetBoard.board = setBoard;
+            for (let i = 0; i < 81; i++) {
+                if (newStateSetBoard.board[i] < 0)
+                    newStateSetBoard.board[i] = 0;
             }
+            newStateSetBoard.check = Array(81).fill(0);
             return newStateSetBoard;
         case 'RESTART':
             let newStateRestart = Object.assign({}, state);
             if (newStateRestart.board.length === 0) newStateRestart.board = []; // game didn't start
             else {
                 for (let i = 0; i < 81; i++) {
-                    if (newStateRestart.board[i] < 0) newStateRestart.board[i] = 0;
+                    if (newStateRestart.board[i] < 0)
+                        newStateRestart.board[i] = 0;
                 }
             }
             newStateRestart.check = Array(81).fill(0);
             return newStateRestart;
         case 'NUMBER_INPUT':
             let newStateInput = Object.assign({}, state);
-            newStateInput.board[action.location] = action.value;
-            console.log('this is board after number input ', newStateInput.board);
+            newStateInput.board[action.location] = action.value * -1;
             return newStateInput;
         case 'SOLVE':
             let newStateSolve = Object.assign({}, state);
-            newStateSolve.check = Array(81).fill(1);
             if (newStateSolve.board.length === 0) newStateSolve.board = []; // there's nothing on board to solve
-            else {
+            else { // solution for current game
+                newStateSolve.check = Array(81).fill(1);
                 for (let i = 0; i < 81; i++) {
                     newStateSolve.board[i] = solvedBoard[i];
                 }
-            } // solution for current game
+            }
             newStateSolve.solveClicked = true;
             return newStateSolve;
         case 'SUBMIT':
