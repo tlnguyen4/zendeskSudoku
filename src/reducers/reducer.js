@@ -37,6 +37,9 @@ const reducer = (state = initialState, action) => {
                 }
             }
             newStateSetBoard.check = Array(81).fill(0);
+            newStateSetBoard.solveClicked = false;
+            newStateSetBoard.completed = false;
+            newStateSetBoard.userInput = 0;
             return newStateSetBoard;
         case 'RESTART':
             let newStateRestart = Object.assign({}, state);
@@ -48,6 +51,9 @@ const reducer = (state = initialState, action) => {
                 }
             }
             newStateRestart.check = Array(81).fill(0);
+            newStateRestart.solveClicked = false;
+            newStateRestart.completed = false;
+            newStateRestart.userInput = 0;
             return newStateRestart;
         case 'NUMBER_INPUT':
             let newStateInput = Object.assign({}, state);
