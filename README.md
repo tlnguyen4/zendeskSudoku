@@ -33,7 +33,7 @@ numbers in that cell.
 - Board starts out as all input fields (matters more on display and appearance of the initial empty board)
 
 ## Problems encountered
-- For quite a while I couldn't figure out why the board component wasn't getting updated even though Redux accepts the
+For quite a while I couldn't figure out why the board component wasn't getting updated even though Redux accepts the
 input and makes a change to the array and send the new state back to App.js. This was because React does a shallow
 check of the array and, by reference, the array is the same as itself. To bypass this, I added a user input counter in
 state and increment the count every time there's an input. By sending this change back to App.js, App.js does
