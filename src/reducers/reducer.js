@@ -45,13 +45,11 @@ const reducer = (state = initialState, action) => {
             newStateRestart.check = Array(81).fill(0);
             return newStateRestart;
         case 'NUMBER_INPUT':
-            console.log('reached reducer.js and input: ', action.value + " at " + action.location);
             let newStateInput = Object.assign({}, state);
-            newStateInput.board[action.location] = action.value * -1;
+            newStateInput.board[action.location] = action.value * -1; // negative to know which is user input
             return newStateInput;
         case 'SUBMIT':
             let newStateSubmit = Object.assign({}, state);
-            console.log('this is current board: ', newStateSubmit.board);
             let wrongTileCount = 0; // number of wrong cells
             // for each cell, if cell value is negative (meaning it's an input), check if it's the same as the answer
             // if yes, then 1, else it's -1. If cell is 0 then it's empty.

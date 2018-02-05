@@ -7,6 +7,7 @@ class TileEmpty extends React.Component {
         this.state = {
             input: ''
         }
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(e) {
@@ -18,9 +19,10 @@ class TileEmpty extends React.Component {
     render() {
         return (
             <div>
+                {console.log(this.props.value)}
                 {(this.props.correct !== 1) ?
-                    <input className={'number-incorrect'} value={this.state.input} onChange={(e) => this.handleChange(e)}/> :
-                    <input className={'number-correct'} value={this.state.input} onChange={(e) => this.handleChange(e)} />}
+                    <input className={'number-incorrect'} value={(this.props.value ? this.props.value * -1 : this.state.input)} onChange={(e) => this.handleChange(e)}/> :
+                    <input className={'number-correct'} value={(this.props.value ? this.props.value * -1 : this.state.input)} onChange={(e) => this.handleChange(e)} />}
             </div>
         )
     }
