@@ -1,0 +1,15 @@
+.number-correct {
+    color: limegreen;
+    width: 80%;
+    text-align: center;
+}
+
+.number-incorrect {
+    color: red;
+    width: 80%;
+    text-align: center;
+}
+
+.tile-font {
+    font-family: Candara;
+}

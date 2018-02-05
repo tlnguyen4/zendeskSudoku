@@ -67,6 +67,7 @@ const reducer = (state = initialState, action) => {
             // if there's no wrong cell, answer wasn't revealed, and board isn't empty, then board is solved
             if (wrongTileCount === 0 && !newStateSubmit.solveClicked && newStateSubmit.board.length !== 0)
                 newStateSubmit.completed = true;
+            newStateSubmit.userInput = newStateSubmit.userInput + 1;
             return newStateSubmit;
         case 'SOLVE':
             let newStateSolve = Object.assign({}, state);
