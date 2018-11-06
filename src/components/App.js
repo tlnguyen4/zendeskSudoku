@@ -20,7 +20,7 @@ let App =({ board, check, completed,
     );
 }
 
-// Map state to props for app
+// Map state to props 
 const mapStateToProps = (state) => {
     return {
         board: state.board,
