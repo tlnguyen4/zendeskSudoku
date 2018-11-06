@@ -1,4 +1,4 @@
-# Thanh's Zendesk 1 Board Sudoku Game
+# Thanh's Zendesk Sudoku Game
 
 ## Technologies used
 - JavaScript (React)
